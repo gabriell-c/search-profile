@@ -50,7 +50,7 @@ npm start
 <br>
 <br>
 <br>
-<img src="readme_imgs\view_mobile.png" alt="Previw mobile"></img>
+<img src="readme_imgs/view_mobile.png" alt="Previw mobile"></img>
 
 <h2> Veja o projeto em funcionamento <a target="_blank" href="https://searchprofilegithub.netlify.app/">aqui</a>. 🧐</h2>
 
@@ -69,6 +69,6 @@ npm start
 <h2 align="center">📝Licença</h2>
 
 <p align="center">
-   Este repositório está sob licença MIT. Você pode ver o arquivo <a href="https://github.com/gabriell-c/search-profile-github/blob/main/License"> LICENSE</a>
+   Este repositório está sob licença MIT. Você pode ver o arquivo <a href="https://github.com/gabriell-c/search-profile/blob/main/License"> LICENSE</a>
    para mais detalhes. 😉
 </p>
