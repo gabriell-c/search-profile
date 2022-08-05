@@ -1,0 +1,9 @@
+.circle{
+    margin: 1em 0 0 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1.5)
+}
