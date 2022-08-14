@@ -2,10 +2,19 @@ import './App.css';
 import React, { useState } from 'react';
 import * as S from './style'
 import Loading from './components/Loading'
+import Img1 from './assets/suitcase.png'
+import Img2 from './assets/internet.png'
+import Img3 from './assets/pin.png'
+import Img4 from './assets/o-email (1).png'
+import Img5 from './assets/twitter.png'
+import Img6 from './assets/calendar.png'
+import ArrowDown from './assets/arrow-down-sign.png'
+import Fork from './assets/git-fork_1.svg'
+import Star from './assets/star.png'
 import Button from '@mui/material/Button';
 
-function App() {
 
+function App() {
     const [getValue, setGetValue] = useState('');
     const [repos, setRepos] = useState([]);
     const [showRepos, setShowRepos] = useState(false);
@@ -32,6 +41,7 @@ function App() {
         fetch(`https://api.github.com/users/${getValue}`)
         .then((response)=>response.json())
         .then((data)=>{
+            console.log(data)
             titleText.innerText = (`@${data.login}`)
             document.getElementById("headerName").innerText = data.name
             document.getElementById("companyText").innerText = data.company
@@ -51,7 +61,7 @@ function App() {
                 setShowInfos(true)
             }
 
-            if(data.Company === undefined){
+            if(data.company === null){
                 document.getElementById("Company").style.display = 'none'
                 document.getElementById("Company").style.margin = '0'
             }else{
@@ -181,32 +191,32 @@ function App() {
                     <p id='bioText'></p>
                     </S.InfoItem>
                     <S.InfoItem id='Company'>
-                        <S.Icon src='../assets/suitcase.png' />
+                        <S.Icon src={Img1} alt='icon' />
                         <p id='companyText'></p>
                     </S.InfoItem>
                     <S.InfoItem id='Site' >
-                        <S.Icon src='../assets/internet.png' />
+                        <S.Icon src={Img2} alt='icon'/>
                         <a href={linkSite} rel="noreferrer" target="_blank"><p id='siteText'></p></a>
                     </S.InfoItem>
                     <S.InfoItem id='Location' >
-                        <S.Icon src='../assets/pin.png' />
+                        <S.Icon src={Img3} alt='icon'/>
                         <p id='locationText'></p>
                     </S.InfoItem>
                     <S.InfoItem id='Email' >
-                        <S.Icon src='../assets/o-email (1).png' />
+                        <S.Icon src={Img4} alt='icon'/>
                         <p id='emailText'></p>
                     </S.InfoItem>
                     <S.InfoItem id='Twitter' >
-                        <S.Icon src='../assets/twitter.png' />
+                        <S.Icon src={Img5} alt='icon'/>
                         <p id='twitterText'></p>
                     </S.InfoItem>
                     <S.InfoItem id='CountDate'>
-                        <S.Icon src='../assets/calendar.png' />
+                        <S.Icon src={Img6} alt='icon'/>
                         <p id='countText'></p>
                     </S.InfoItem>
                 </S.InfoProfile>
 
-                <S.ViewRepos onClick={handleResultRepos}><img alt='arrow-down' src='../assets/arrow-down-sign.png'/></S.ViewRepos>
+                <S.ViewRepos onClick={handleResultRepos}><img alt='arrow-down' src={ArrowDown}/></S.ViewRepos>
 
                 <div style={{display: showRepos ? 'flex' : 'none', flexDirection: 'column'}}>
                     {repos.map((item, key)=>(
@@ -232,12 +242,12 @@ function App() {
 
                                 <S.RepoDetItemSec>
                                     <S.RepoDetItem>
-                                        <img src='../assets/git-fork_1.svg' alt='fork'/>
+                                        <img src={Fork} alt='fork'/>
                                         <p>{item.forks}</p>
                                     </S.RepoDetItem>
 
                                     <S.RepoDetItemInfo>
-                                        <img src='../assets/star.png' alt='star'/>
+                                        <img src={Star} alt='star'/>
                                         <p>{item.watchers}</p>
                                     </S.RepoDetItemInfo>
                                 </S.RepoDetItemSec>
